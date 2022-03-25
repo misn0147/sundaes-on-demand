@@ -5,12 +5,12 @@ import { server } from "../../../mocks/server";
 
 test("handles error for scopps and toppings routes", async () => {
     server.resetHandlers(
-        rest.get("hhtp://localhost:3030/scoops", (req, res, ctx) =>
-            res(ctx.status(500))
-        ),
-        rest.get("hhtp://localhost:3030/toppings", (req, res, ctx) =>
-            res(ctx.status(500))
-        )
+        rest.get("hhtp://localhost:3030/scoops", (req, res, ctx) => {
+            return res(ctx.status(500));
+        }),
+        rest.get("hhtp://localhost:3030/toppings", (req, res, ctx) => {
+            return res(ctx.status(500));
+        })
     );
 
     render(<OrderEntry />);
